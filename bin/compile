@@ -25,10 +25,10 @@ if ! [ -e $BUILD_DIR/local/bin/cpanm ]; then
 fi
 
 echo "-----> Installing dependencies"
-cpanm --installdeps . 2>&1 | indent
+cpanm --installdeps --prompt --force --notest . 2>&1 | indent
 
 echo "-----> Installing Starman"
-cpanm Starman 2>&1 | indent
+cpanm --notest Starman 2>&1 | indent
 
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local
